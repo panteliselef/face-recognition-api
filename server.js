@@ -38,13 +38,16 @@ app.listen(3000, () => {
 app.get("/", root.getAllUser(db));
 
 // POST REQUEST "/signin"
-app.post("/signin", signin.handleSignIn(db));
+app.post("/signin", signin.handleSignIn(db,bcrypt));
 
 // POST REQUEST "/register"
 app.post("/register", register.handleRegister(db,bcrypt));
 
 // GET REQUEST "/profile/:id"
 app.get("/profile/:id", profile.handleProfileGet(db));
+
+// PUT REQUEST "/profile/"
+app.put("/profile", profile.handleProfilePut(db));
 
 // PUT REQUEST "/image"
 app.put("/image", (req,res) => {image.handleImage(req,res,db)})
