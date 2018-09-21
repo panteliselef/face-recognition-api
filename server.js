@@ -35,7 +35,8 @@ app.listen(process.env.PORT || 3000, () => {
  */
 
 // GET REQUEST "/"
-app.get("/", root.getAllUser(db));
+// app.get("/", root.getAllUser(db));
+app.get("/", (req,res) => {res.send('it is working')});
 
 // POST REQUEST "/signin"
 app.post("/signin", signin.handleSignIn(db,bcrypt));
