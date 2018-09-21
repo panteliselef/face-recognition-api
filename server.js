@@ -24,9 +24,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Localhost is running on port ${process.env.PORT}`)
-})
+
 
 
 
@@ -55,3 +53,8 @@ app.put("/image", (req,res) => {image.handleImage(req,res,db)})
 
 // POST REQUEST "/imageurl"
 app.post("/imageurl", (req,res) => {image.handleApiCall(req,res)})
+
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Localhost is running on port ${process.env.PORT}`)
+})
